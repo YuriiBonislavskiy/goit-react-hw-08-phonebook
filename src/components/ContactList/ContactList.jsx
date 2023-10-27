@@ -25,6 +25,8 @@ const ContactsList = () => {
           // rowSpacing={0}
           // columnSpacing={0}
           key={id}
+          // xs={12}
+          // sm={7}
         >
           <ContactsListItem id={id} name={name} number={number} />
         </Grid>

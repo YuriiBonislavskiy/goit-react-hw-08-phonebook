@@ -1,8 +1,5 @@
 import { useDispatch } from 'react-redux';
-// import { lazy } from 'react';
-
 import { authOperations } from 'Redux/auth';
-// import { Link } from 'react-router-dom';
 import {
   CssBaseline,
   Container,
@@ -13,14 +10,9 @@ import {
   Button,
   Link,
 } from '@mui/material';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { validationsRegisterForm } from 'validations/validationSchema';
-
-// const Login = lazy(() => import('pages/login'));
-
-// const defaultTheme = createTheme();
 
 export const Register = props => {
   const initialValues = {
@@ -34,9 +26,8 @@ export const Register = props => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-      const { fname, lname, email, password } = values;
-      const name = (`${fname} ${lname}`).trim;
-    console.log({ name, email, password });
+    const { fname, lname, email, password } = values;
+    const name = `${fname} ${lname}`;
     dispatch(authOperations.register({ name, email, password }));
     resetForm();
   };

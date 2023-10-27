@@ -13,7 +13,7 @@ const Filter = () => {
   };
 
   return (
-    <Grid container spacing={1} sx={{ mt: 1, mb: 3 }}>
+    <Grid container spacing={1} sx={{ mt: 1, mb: 1 }}>
       <Grid item xs={12} sm={8} md={6} elevation={6} square="true">
         <TextField
           // className={css.filter}

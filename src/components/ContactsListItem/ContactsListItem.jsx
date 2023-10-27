@@ -12,26 +12,17 @@ export const ContactsListItem = ({ id, name, number }) => {
   };
 
   return (
-    // <Box
-    //   sx={{
-    //     display: 'flex',
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     p: 0,
-    //     m: 0,
-    //   }}
-    // >
     <>
-      <Grid item xs={4}>
+      <Grid item xs={3.5} sx={{ mt: 0.5 }}>
         {/* <Typography variant="h8" md={3}> */}
         {name}
         {/* </Typography>*/}
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} sx={{ mt: 0.5 }} >
         {/* <Typography variant="h8">{number} </Typography> */}
         {number}
       </Grid>
-      <Grid item xs>
+      <Grid item xs sx={{ mb: 0.6 }} >
         <Button
           variant="outlined"
           startIcon={<DeleteIcon />}

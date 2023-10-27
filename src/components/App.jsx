@@ -24,6 +24,7 @@ const App = () => {
   return (
     <Container>
       <ContactsAppBar />
+      {/* {!isFetchingCurrentUser && ( */}
       <Suspense>
         <Routes>
           <Route path="/">
@@ -38,7 +39,8 @@ const App = () => {
             </Route>
           </Route>
         </Routes>
-      </Suspense>
+        </Suspense>
+      {/* )} */}
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authOperations } from 'Redux/auth';
 import {
   CssBaseline,
@@ -10,9 +10,11 @@ import {
   Button,
   Link,
 } from '@mui/material';
+
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { validationsLoginForm } from 'validations/validationSchema';
+import { authSelectors } from 'Redux/auth';
 // import { skeletons } from 'skeletons';
 
 // const Register = lazy(() => import('pages/register'));
@@ -30,18 +32,17 @@ export const Login = props => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
-    console.log({ email, password });
     dispatch(authOperations.logIn({ email, password }));
     resetForm();
   };
 
-  // const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   return (
     // <ThemeProvider theme={defaultTheme}>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
- 
+      {!isFetchingCurrentUser && (
         <Box
           sx={{
             marginTop: 8,
@@ -128,6 +129,7 @@ export const Login = props => {
             </Grid>
           </Grid>
         </Box>
+      )}
     </Container>
     // </ThemeProvider>
   );

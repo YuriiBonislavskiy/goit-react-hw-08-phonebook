@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { useState } from 'react';
 import { CssBaseline, Grid, Box, TextField, Button } from '@mui/material';
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -15,8 +14,6 @@ export const ContactForm = props => {
     number: '',
   };
 
-// const [muiNumber, setMuiNumber] = useState('');
-
   const schema = yup.object().shape(validationsContactForm);
 
   const dispatch = useDispatch();
@@ -24,10 +21,8 @@ export const ContactForm = props => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { fname, lname, number } = values;
-    // const { fname, lname } = values;
-    const name = `${fname} ${lname}`;
 
-    console.log(name, number);
+    const name = `${fname} ${lname}`;
     if (contacts.findIndex(contact => contact.name === name) >= 0) {
       alert(`${name} is already in contacts`);
       return;
@@ -39,13 +34,6 @@ export const ContactForm = props => {
     dispatch(phonebookOperations.addContacts(newContact));
     resetForm();
   };
-
-  // const handleTelChange = (value) => {
-  //   // matchIsValidTel(value) &&
-  //     setMuiNumber(value);
-  //     initialValues.number = value;
-  //     console.log(initialValues.number)
-  // };
 
   return (
     <Grid container component="main">
