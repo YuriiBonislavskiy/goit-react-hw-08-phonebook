@@ -122,7 +122,7 @@ export const Login = props => {
           <Grid container justifyContent="flex-end">
             <Grid item>
               {/* <Typography component="h5" variant="inherit" color="inherit"> */}
-              <Link href="/register" underline="hover">
+              <Link href="register" underline="hover">
                 Don't have an account? Sign Up
               </Link>
               {/* </Typography> */}

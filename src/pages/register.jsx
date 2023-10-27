@@ -142,7 +142,7 @@ export const Register = props => {
         <Grid container justifyContent="flex-end">
           <Grid item>
             {/* <Typography component="h5" variant="inherit" color="inherit"> */}
-            <Link href="/login" underline="hover">
+            <Link href="login" underline="hover">
               Already have an account? Sign in
             </Link>
             {/* </Typography> */}
