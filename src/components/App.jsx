@@ -41,7 +41,6 @@ const App = () => {
                 </Route>
                 <Route
                   element={<PrivateRoute redirectTo="/login" />}
-                  restricted
                 >
                   <Route path="/contacts" element={<Contacts />} />
                 </Route>

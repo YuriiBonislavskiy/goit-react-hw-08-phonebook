@@ -23,17 +23,17 @@ export default function ContactsAppBar() {
       <CssBaseline />
       <Toolbar>
         {isLoggedIn && (
-          <Link href="/contacts" variant="h5" color="inherit" underline="hover">
+          <Link
+            href="contacts"
+            variant="h5"
+            color="inherit"
+            underline="hover"
+          >
             Contacts
           </Link>
         )}
         <UserMenu />
       </Toolbar>
     </AppBar>
-    // <header style={styles.header}>
-    //   <Navigation />
-    //   <UserMenu />
-    //   {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
-    // </header>
   );
 }

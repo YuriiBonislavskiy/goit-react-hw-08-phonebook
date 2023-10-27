@@ -1,11 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import {
-  Typography,
-  Grid,
-  Box,
-  IconButton,
-} from '@mui/material';
+import { Typography, Grid, Box, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import phonebookOperations from 'Redux/phonebook/phonebookOperations';
 
@@ -25,24 +20,32 @@ export const ContactsListItem = ({ id, name, number }) => {
       }}
     >
       <Grid item md={4}>
-        <Typography variant="h7" md={3}>
+        <Typography variant="h8" md={3}>
           {name}
         </Typography>
       </Grid>
       <Grid item md={2}>
-        <Typography variant="h7">{number} </Typography>
+        <Typography variant="h8">{number} </Typography>
       </Grid>
       <Grid item md={2}>
-        <IconButton
+        <Button
+          variant="outlined"
+          startIcon={<DeleteIcon />}
+          onClick={() => onDeleteContact(id)}
+          sx={{pl: 3}}
+        >
+        </Button>
+
+        {/* <IconButton
           aria-label="delete"
           size="large"
           onClick={() => onDeleteContact(id)}
         >
           <DeleteIcon />
-        </IconButton>
+        </IconButton> */}
       </Grid>
     </Box>
-  );      
+  );
 };
 
 ContactsListItem.prototype = {

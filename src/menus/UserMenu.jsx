@@ -16,7 +16,12 @@ export default function UserMenu() {
             {email}
           </Typography>
         ) : (
-          <Link href="/register" variant="h7" color="inherit" underline="hover">
+          <Link
+            href="register"
+            variant="h7"
+            color="inherit"
+            underline="hover"
+          >
             Register
           </Link>
         )}
@@ -32,7 +37,7 @@ export default function UserMenu() {
             LogOut
           </Button>
         ) : (
-          <Link href="/login" variant="h7" color="inherit" underline="hover">
+          <Link href="login" variant="h7" color="inherit" underline="hover">
             LogIn
           </Link>
         )}

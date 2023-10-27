@@ -71,48 +71,48 @@ export const Login = props => {
               <form onSubmit={handleSubmit}>
                 <Grid container spacing={1} sx={{ mt: 2, mb: 2 }}>
                   <Grid item xs={12}>
-                <TextField
-                  id="email"
-                  label="Email"
-                  type="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  helperText={touched.email ? errors.email : ''}
-                  error={touched.email && Boolean(errors.email)}
-                  margin="dense"
-                  variant="outlined"
-                  fullWidth
-                />
+                    <TextField
+                      id="email"
+                      label="Email"
+                      type="email"
+                      value={values.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      helperText={touched.email ? errors.email : ''}
+                      error={touched.email && Boolean(errors.email)}
+                      margin="dense"
+                      variant="outlined"
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12}>
-                <TextField
-                  id="password"
-                  label="Password"
-                  type="password"
-                  value={values.password}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  helperText={touched.password ? errors.password : ''}
-                  error={touched.password && Boolean(errors.password)}
-                  margin="dense"
-                  variant="outlined"
-                  fullWidth
-                />
+                    <TextField
+                      id="password"
+                      label="Password"
+                      type="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      helperText={touched.password ? errors.password : ''}
+                      error={touched.password && Boolean(errors.password)}
+                      margin="dense"
+                      variant="outlined"
+                      fullWidth
+                    />
                   </Grid>
                   <Grid item xs={12}>
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 2, }}
-                  xs={12}
-                  sm={12}
-                >
-                  Sign Up
-                            </Button>
-                        </Grid>
-                        </Grid>
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 2 }}
+                      xs={12}
+                      sm={12}
+                    >
+                      Sign Up
+                    </Button>
+                  </Grid>
+                </Grid>
               </form>
             );
           }}
