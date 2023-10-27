@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Typography, Grid, Box, Button } from '@mui/material';
+import {  Grid, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import phonebookOperations from 'Redux/phonebook/phonebookOperations';
 
@@ -12,29 +12,32 @@ export const ContactsListItem = ({ id, name, number }) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-      }}
-    >
-      <Grid item md={4}>
-        <Typography variant="h8" md={3}>
-          {name}
-        </Typography>
+    // <Box
+    //   sx={{
+    //     display: 'flex',
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     p: 0,
+    //     m: 0,
+    //   }}
+    // >
+    <>
+      <Grid item xs={4}>
+        {/* <Typography variant="h8" md={3}> */}
+        {name}
+        {/* </Typography>*/}
       </Grid>
-      <Grid item md={2}>
-        <Typography variant="h8">{number} </Typography>
+      <Grid item xs={2}>
+        {/* <Typography variant="h8">{number} </Typography> */}
+        {number}
       </Grid>
-      <Grid item md={2}>
+      <Grid item xs>
         <Button
           variant="outlined"
           startIcon={<DeleteIcon />}
           onClick={() => onDeleteContact(id)}
-          sx={{pl: 3}}
-        >
-        </Button>
+          sx={{ pl: 3 }}
+        ></Button>
 
         {/* <IconButton
           aria-label="delete"
@@ -44,7 +47,8 @@ export const ContactsListItem = ({ id, name, number }) => {
           <DeleteIcon />
         </IconButton> */}
       </Grid>
-    </Box>
+    </>
+    // </Box>
   );
 };
 

@@ -16,9 +16,16 @@ const ContactsList = () => {
   const visibleContacts = getVisibleContacts();
 
   return (
-    <Grid container component="main" flexDirection="column">
+    <Grid container spacing={0}>
       {visibleContacts.map(({ id, name, number }) => (
-        <Grid item xs={12} sm={12} md={11} key={id}>
+        <Grid
+          container
+          direction="row"
+          spacing={0}
+          // rowSpacing={0}
+          // columnSpacing={0}
+          key={id}
+        >
           <ContactsListItem id={id} name={name} number={number} />
         </Grid>
       ))}

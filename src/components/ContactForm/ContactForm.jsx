@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
+// import { useState } from 'react';
 import { CssBaseline, Grid, Box, TextField, Button } from '@mui/material';
 import { Formik } from 'formik';
 import * as yup from 'yup';
-// import { MuiTelInput } from 'mui-tel-input';
+import { MuiTelInput } from 'mui-tel-input';
 import { phonebookOperations } from 'Redux/phonebook';
 import { validationsContactForm } from 'validations/validationSchema';
 import { phonebookSelectors } from 'Redux/phonebook';
@@ -13,6 +14,9 @@ export const ContactForm = props => {
     lname: '',
     number: '',
   };
+
+// const [muiNumber, setMuiNumber] = useState('');
+
   const schema = yup.object().shape(validationsContactForm);
 
   const dispatch = useDispatch();
@@ -20,6 +24,7 @@ export const ContactForm = props => {
 
   const handleSubmit = (values, { resetForm }) => {
     const { fname, lname, number } = values;
+    // const { fname, lname } = values;
     const name = `${fname} ${lname}`;
 
     console.log(name, number);
@@ -31,11 +36,16 @@ export const ContactForm = props => {
       name: name,
       number: number,
     };
-
     dispatch(phonebookOperations.addContacts(newContact));
-
     resetForm();
   };
+
+  // const handleTelChange = (value) => {
+  //   // matchIsValidTel(value) &&
+  //     setMuiNumber(value);
+  //     initialValues.number = value;
+  //     console.log(initialValues.number)
+  // };
 
   return (
     <Grid container component="main">
@@ -98,12 +108,27 @@ export const ContactForm = props => {
                         fullWidth
                       />
                     </Grid>
-                    <Grid item xs={12}>
-                      <TextField
+                    <Grid item xs={12} sm={12}>
+                      {/* <TextField
                         id="number"
                         label="Phone number"
                         value={values.number}
                         onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={touched.number ? errors.number : ''}
+                        error={touched.number && Boolean(errors.number)}
+                        margin="dense"
+                        variant="outlined"
+                        fullWidth
+                      />*/}
+                      <MuiTelInput
+                        id='number'
+                        preferredCountries={['UA']}
+                        defaultCountry="UA"
+                        onChange={handleChange('number')}
+                        value={values.number}
+                        required
+                        // disableFormatting
                         onBlur={handleBlur}
                         helperText={touched.number ? errors.number : ''}
                         error={touched.number && Boolean(errors.number)}

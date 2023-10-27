@@ -1,8 +1,5 @@
 import { useDispatch } from 'react-redux';
-// import { lazy } from 'react';
-
 import { authOperations } from 'Redux/auth';
-// import { Link } from 'react-router-dom';
 import {
   CssBaseline,
   Container,
@@ -13,10 +10,10 @@ import {
   Button,
   Link,
 } from '@mui/material';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { validationsLoginForm } from 'validations/validationSchema';
+// import { skeletons } from 'skeletons';
 
 // const Register = lazy(() => import('pages/register'));
 
@@ -38,96 +35,99 @@ export const Login = props => {
     resetForm();
   };
 
+  // const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+
   return (
     // <ThemeProvider theme={defaultTheme}>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={schema}
-          onSubmit={handleSubmit}
-        >
-          {props => {
-            const {
-              values,
-              touched,
-              errors,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-            } = props;
-            return (
-              <form onSubmit={handleSubmit}>
-                <Grid container spacing={1} sx={{ mt: 2, mb: 2 }}>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="email"
-                      label="Email"
-                      type="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      helperText={touched.email ? errors.email : ''}
-                      error={touched.email && Boolean(errors.email)}
-                      margin="dense"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="password"
-                      label="Password"
-                      type="password"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      helperText={touched.password ? errors.password : ''}
-                      error={touched.password && Boolean(errors.password)}
-                      margin="dense"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      sx={{ mt: 2 }}
-                      xs={12}
-                      sm={12}
-                    >
-                      Sign Up
-                    </Button>
-                  </Grid>
-                </Grid>
-              </form>
-            );
+ 
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
-        </Formik>
+        >
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={schema}
+            onSubmit={handleSubmit}
+          >
+            {props => {
+              const {
+                values,
+                touched,
+                errors,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+              } = props;
+              return (
+                <form onSubmit={handleSubmit}>
+                  <Grid container spacing={1} sx={{ mt: 2, mb: 2 }}>
+                    <Grid item xs={12}>
+                      <TextField
+                        id="email"
+                        label="Email"
+                        type="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={touched.email ? errors.email : ''}
+                        error={touched.email && Boolean(errors.email)}
+                        margin="dense"
+                        variant="outlined"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        id="password"
+                        label="Password"
+                        type="password"
+                        value={values.password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={touched.password ? errors.password : ''}
+                        error={touched.password && Boolean(errors.password)}
+                        margin="dense"
+                        variant="outlined"
+                        fullWidth
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 2 }}
+                        xs={12}
+                        sm={12}
+                      >
+                        Sign Up
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </form>
+              );
+            }}
+          </Formik>
 
-        <Grid container justifyContent="flex-end">
-          <Grid item>
-            {/* <Typography component="h5" variant="inherit" color="inherit"> */}
-            <Link href="/register" underline="hover">
-              Don't have an account? Sign Up
-            </Link>
-            {/* </Typography> */}
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              {/* <Typography component="h5" variant="inherit" color="inherit"> */}
+              <Link href="/register" underline="hover">
+                Don't have an account? Sign Up
+              </Link>
+              {/* </Typography> */}
+            </Grid>
           </Grid>
-        </Grid>
-      </Box>
+        </Box>
     </Container>
     // </ThemeProvider>
   );
